@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="header">
+      <div><a href="/home" id="brand-name">Graceful-ZGM</a></div>
+
+      <div class="icon-box">
+        <a href="/home" class="btn btn-default">
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="icon-box dropdown">
+        <button href="/home" type="button" class="btn btn-default dropdown-toggle"
+                id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+          <li><a href="/list/map">現在地から探す</a></li>
+          <li><a href="#">Myスポットから探す</a></li>
+          <li><a href="#">お気に入りから探す</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="/logout">ログアウト</a></li>
+        </ul>
+      </div>
+
+    </div><!-- end of header -->
+    <!-- container below -->
+    <div class="container">
