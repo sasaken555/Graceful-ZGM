@@ -3,10 +3,10 @@ var router = express.Router();
 var axios = require('axios');
 
 /**
- * GET menu page
+ * メニュー画面表示API
  * @param /home メニュー画面URL
- * @param req, res, next テンプレ
- * @return meni.ejs ホームページ
+ * @param req, res, next リクエスト/レスポンス格納変数
+ * @return menu.ejs ホームページ
  */
 router.get('/home', (req, res, next) => {
   res.render('menu', {
@@ -16,8 +16,21 @@ router.get('/home', (req, res, next) => {
 
 
 /**
- * GET home page
- * @param -
+ * 全店舗マーカー付き地図画面API
+ * @param /list/map 地図画面URL
+ * @param req, res, next リクエスト/レスポンス格納変数
+ * @return GzmMap.ejs 地図画面
+ */
+router.get('/list/map', (req, res, next) => {
+  res.render('GzmMap', {
+    title: '地図表示画面'
+  });
+});
+
+/**
+ * 店舗一覧画面API
+ * @param /list/map 一覧画面URL
+ * @param req, res, next リクエスト/レスポンス格納変数
  * @return index.ejs ホームページ
  */
 router.get('/list/datas', function(req, res, next) {
@@ -34,6 +47,23 @@ router.get('/list/datas', function(req, res, next) {
       console.log(err);
     })
 });
+
+
+/**
+* 店舗情報取得API ぐるなびAPIのラッパー
+* @param /getDatas/lat/lng 店舗情報取得URL lat:緯度 lng:経度
+* @param req, res, next リクエスト/レスポンス格納変数
+* @return resultSet ぐるなびAPIから取得した店舗情報を格納するJSONデータ
+*/
+
+
+/**
+ * 地図取得API
+ * @param /getMap/lat/lng 一覧画面URL lat:緯度 lng:経度
+ * @param req, res, next リクエスト/レスポンス格納変数
+ * @return mapNode 地図のDOM要素
+ */
+
 
 /**
  * 店舗情報を返すぐるなびラッパーAPI
@@ -57,5 +87,15 @@ router.get('/getMeshi', function(req, res, next) {
       console.log(err);
     });
 });
+
+
+
+/**
+ * ログイン画面表示API
+ * @param /login ログイン画面URL
+ * @param req, res, next リクエスト/レスポンス格納変数
+ * @return menu.ejs ホームページ
+ */
+
 
 module.exports = router;
