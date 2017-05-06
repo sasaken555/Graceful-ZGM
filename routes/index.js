@@ -47,7 +47,7 @@ router.get('/getMeshi', function(req, res, next) {
   var lat = 35.7458385;
   // var lng = req.params.lng
   var lng = 139.6220203;
-  var keyid = '317677fa65212a178a06783405242cce';
+  var keyid = 'MY_KEY';
   paramURL = `https://api.gnavi.co.jp/RestSearchAPI/20150630/?keyid=${keyid}&format=json&latitude=${lat}&longitude=${lng}`;
   return axios.get(paramURL)
     .then((response) => {
