@@ -29,23 +29,15 @@ router.get('/list/map', (req, res, next) => {
 
 /**
  * 店舗一覧画面API
- * @param /list/map 一覧画面URL
+ * @param /list/datas 一覧画面URL
  * @param req, res, next リクエスト/レスポンス格納変数
  * @return index.ejs ホームページ
  */
 router.get('/list/datas', function(req, res, next) {
   // TODO: 店舗情報を渡して情報を一覧表示
-  axios.get('http://localhost:3000/getMeshi')
-    .then((response) => {
-      res.render('index', {
-        title: 'Express',
-        items: response.data.rest
-      });
-    })
-    .catch((err) => {
-      console.log("Access Failed");;
-      console.log(err);
-    })
+  res.render('GzmList', {
+    title: '一覧画面'
+  });
 });
 
 
@@ -55,7 +47,14 @@ router.get('/list/datas', function(req, res, next) {
 * @param req, res, next リクエスト/レスポンス格納変数
 * @return resultSet ぐるなびAPIから取得した店舗情報を格納するJSONデータ
 */
-
+router.get('/getDatas/lat/lng', (req, res, next) => {
+  // TODO: AJAXでAPIからJSONを取得する処理
+  res.json({
+    name: "MidNightRest",
+    opentime: "PM 17:00 - AM 05:00",
+    midnight: true
+  });
+});
 
 /**
  * 地図取得API
@@ -63,16 +62,19 @@ router.get('/list/datas', function(req, res, next) {
  * @param req, res, next リクエスト/レスポンス格納変数
  * @return mapNode 地図のDOM要素
  */
+ router.get('/getMap/lat/lng', (req, res, next) => {
+   res.send("Map");
+ });
 
 
 /**
- * 店舗情報を返すぐるなびラッパーAPI
+ * 店舗情報を返すぐるなびラッパーAPI 過去分
  * @param lan 緯度
  * @param lng 経度
  * @return items 店舗情報配列
  */
+/*
 router.get('/getMeshi', function(req, res, next) {
-  // TODO: API実行結果を返す
   // var lat = req.params.lat;
   var lat = 35.7458385;
   // var lng = req.params.lng
@@ -87,7 +89,7 @@ router.get('/getMeshi', function(req, res, next) {
       console.log(err);
     });
 });
-
+*/
 
 
 /**
@@ -96,6 +98,11 @@ router.get('/getMeshi', function(req, res, next) {
  * @param req, res, next リクエスト/レスポンス格納変数
  * @return menu.ejs ホームページ
  */
-
+router.get('/login', (req, res, next) => {
+  // TODO: ログインページを実装
+  res.render('menu', {
+    title: 'メニュー画面'
+  });
+});
 
 module.exports = router;

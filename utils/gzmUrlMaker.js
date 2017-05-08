@@ -5,7 +5,7 @@
  * @param lng 経度
  * @return grnvUrl ぐるなびWebAPIのリクエストURL
  */
-function makeGrnvUrl(lat, lng) {
+export function makeGrnvUrl(lat, lng) {
   grnvUrl = '';
   var key = 'YOUR_KEY';
   //  TODO: key, format, lat, lng, rangeを含めて組み立てる
@@ -20,7 +20,7 @@ function makeGrnvUrl(lat, lng) {
  * @param lng 経度
  * @return staticMapUrl ぐるなびWebAPIのリクエストURL
  */
-function makeStaticMapUrl(lat, lng) {
+export function makeStaticMapUrl(lat, lng) {
   staticMapUrl = '';
   var key = 'YOUR_KEY';
   //  TODO: center(lat,lng), zoom, size, markers, keyを含めて組み立てる

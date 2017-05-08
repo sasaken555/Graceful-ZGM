@@ -22,7 +22,7 @@ GZM_SINGLETON.datas = () => {
  * @param -
  * @return -
  */
-function gzmSingleton() {
+export function gzmSingleton() {
   // some code here...
   return GZM_SINGLETON;
 }
